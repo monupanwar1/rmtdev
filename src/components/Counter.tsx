@@ -1,5 +1,5 @@
-export default function Counter() {
+export default function Counter({}) {
   return (
-    <div>Counter</div>
+    <p>items packed</p>
   )
 }

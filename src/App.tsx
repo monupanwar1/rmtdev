@@ -1,5 +1,19 @@
+import BackgroundHeading from "./components/BackgroundHeading";
+import Footer from "./components/Footer";
+import Header from "./components/Header";
+import ItemsList from "./components/ItemsList";
+import Sidebar from "./components/Sidebar";
+
 export default function App() {
   return (
-    <div>App</div>
+    <>
+    <BackgroundHeading/>
+    <main>
+      <Header/>
+      <ItemsList/>
+      <Sidebar/>
+    </main>
+    <Footer/>
+    </>
   )
 }
