@@ -1,8 +1,8 @@
 
 export default function App() {
   return (
-   <>
-   hello
-   </>
+   <div className="bg-blue-500">
+    hello
+   </div>
   )
 }
