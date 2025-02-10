@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
+import { JobItems } from "./types";
 
 export function useJobItems(searchText:string){
     
-const[jobItems,setJobItems]=useState([]);
+const[jobItems,setJobItems]=useState<JobItems[]>([]);
 const[isLoading,setIsLoading]=useState(false);
 // slicing and returning only 7;
 
@@ -30,7 +31,7 @@ useEffect(()=>{
  return [
     jobItemSliced,
     isLoading
- ]
+ ] as const
 
 }
 
