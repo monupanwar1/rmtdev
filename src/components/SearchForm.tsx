@@ -1,7 +1,10 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
-export default function SearchForm() {
-  const[searchText,setSearchText]=useState("");
+export default function SearchForm({
+  searchText,
+  setSearchText
+}) {
+ 
   return (
     <form onSubmit={(e) => {
       e.preventDefault()
@@ -16,6 +19,7 @@ export default function SearchForm() {
         value={searchText}
         onChange={(e)=>{
         setSearchText(e.target.value)
+        fetch("");
         }}
         spellCheck="false"
         type="text"
