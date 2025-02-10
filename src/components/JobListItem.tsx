@@ -18,6 +18,6 @@ export default function JobListItem({
           <time className="job-item__time">{jobItems.date}</time>
         </div>
       </a>
-    </li>
+    </li> 
   );
 }

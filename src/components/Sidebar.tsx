@@ -1,20 +1,17 @@
-import JobList from "./JobList";
-import Pagination from "./PaginationControls";
-import ResultsCount from "./ResultsCount";
-import SortingControls from "./SortingControls";
 
-export default function Sidebar({
-  jobItems
-}) {
+export default function Sidebar({children
+}:{children:React.ReactNode}) {
     return (
       <div className="sidebar">
-        <div className="sidebar__top">
-            <ResultsCount/>
-            <SortingControls/>
-        </div>
-
-        <JobList jobItems={jobItems}/>
-        <Pagination/>
+        {children}
       </div>
     );
   }
+
+export function SidebarTop({children}:{children:React.ReactNode}){
+  return(
+    <div className="sidebar_top">
+    {children}
+    </div>
+  )
+}
