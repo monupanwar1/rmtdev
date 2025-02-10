@@ -12,30 +12,13 @@ import SortingControls from "./SortingControls";
 import ResultsCount from "./ResultsCount";
 import Pagination from "./PaginationControls";
 import JobList from "./JobList";
+import { useJobItems } from "../lib/hooks";
 
 
 function App() {
-  const[jobItems,setJobItems]=useState([]);
   const[searchText,setSearchText]=useState("");
-  const[isLoading,setIsLoading]=useState(false);
-  
-  
-  useEffect(()=>{
-    if(!setSearchText) return;
+  const{jobItems,isLoading}=useJobItems(searchText);
 
-    const fetchData=async()=>{
-      setIsLoading(true);
-    const response =await fetch(
-      `
-      https://bytegrad.com/course-assets/projects/rmtdev/api/data?search=${searchText}`
-    );
-     const data =await response.json();
-     setIsLoading(false);
-      setJobItems(data.jobItems);
-    };
-    fetchData();
-
-  },[searchText])
 
 
   return (
