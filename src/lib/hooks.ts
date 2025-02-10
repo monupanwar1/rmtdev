@@ -27,10 +27,10 @@ useEffect(()=>{
 },[searchText])
 
 
- return {
+ return [
     jobItemSliced,
     isLoading
- }
+ ]
 
 }
 
