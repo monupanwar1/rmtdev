@@ -1,6 +1,3 @@
-
 export default function ResultsCount() {
-  return (
-    <div>ResultsCount</div>
-  )
-}
+    return <p className="count">0 results</p>;
+  }
