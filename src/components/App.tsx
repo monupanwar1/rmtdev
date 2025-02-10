@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import {useState } from "react";
 import Background from "./Background";
 import Container from "./Container";
 import Footer from "./Footer";
@@ -17,7 +17,7 @@ import { useJobItems } from "../lib/hooks";
 
 function App() {
   const[searchText,setSearchText]=useState("");
-  const{jobItems,isLoading}=useJobItems(searchText);
+  const{jobItemSliced,isLoading}=useJobItems(searchText);
 
 
 
@@ -39,10 +39,10 @@ function App() {
      <Sidebar>
      <SidebarTop>
             <ResultsCount/>
-            <SortingControls/>
+            <SortingControls/> 
       </SidebarTop>
 
-        <JobList jobItems={jobItems} isLoading={isLoading}/>
+        <JobList jobItems={jobItemSliced} isLoading={isLoading}/>
         <Pagination/>
       </Sidebar>
 

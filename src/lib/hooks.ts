@@ -4,6 +4,9 @@ export function useJobItems(searchText:string){
     
 const[jobItems,setJobItems]=useState([]);
 const[isLoading,setIsLoading]=useState(false);
+// slicing and returning only 7;
+
+const jobItemSliced=jobItems.slice(0,7);
 
 
 useEffect(()=>{
@@ -25,7 +28,7 @@ useEffect(()=>{
 
 
  return {
-    jobItems,
+    jobItemSliced,
     isLoading
  }
 
