@@ -1,10 +1,10 @@
 import { useActiveId } from "../lib/hooks";
-import { JobItems } from "../lib/types";
+import { JobItem } from "../lib/types";
 import JobListItem from "./JobListItem";
 import Spinner from "./Spinner";
 
 type jobListProps={
-  jobItems:JobItems[],
+  jobItems:JobItem[],
   isLoading:boolean,
 }
 

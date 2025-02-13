@@ -1,4 +1,4 @@
-export type JobItems = {
+export type JobItem = {
     id: number;
     badgeLetters: string;
     title: string;
@@ -8,7 +8,7 @@ export type JobItems = {
     daysAgo: number;
   };
   
-  export type JobItemExpanded = JobItems & {
+  export type JobItemExpanded = JobItem & {
     description: string;
     qualifications: string[];
     reviews: string[];
