@@ -1,8 +1,8 @@
-import { JobItems } from "../lib/types";
+import { JobItem } from "../lib/types";
 import BookmarkIcon from "./BookmarkIcon";
 
 type jobItemsProps={
-  jobItem:JobItems
+  jobItem:JobItem
   isActive:boolean
 }
 

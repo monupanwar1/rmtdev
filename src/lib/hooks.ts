@@ -31,10 +31,11 @@ export function useActiveId(){
 
 export function useJobItems(searchText:string){
     
-const[jobItems,setJobItems]=useState<JobItems[]>([]);
+const[jobItems,setJobItems]=useState<JobItem[]>([]);
 const[isLoading,setIsLoading]=useState(false);
 // slicing and returning only 7;
 
+const totalNumberOfResult =jobItems.length;
 const jobItemSliced=jobItems.slice(0,7);
 
 
@@ -55,7 +56,8 @@ useEffect(()=>{
 
  return [
     jobItemSliced,
-    isLoading
+    isLoading,
+    totalNumberOfResult
  ] as const
 
 }
@@ -104,14 +106,14 @@ const fetchJobItem=async(id:number):Promise<JobItemsApiResponse> =>{
 export function useJobItem(id: number | null) {
   const { data, isLoading} = useQuery({
     queryKey:["job-items",id],
-    queryFn:()=>(id ? fetchJobItem(id):null),
+    queryFn:()=>(id ? fetchJobItem(id):Promise.resolve(null)),
     staleTime:1000*60*60,
     refetchOnWindowFocus:false,
     retry:false,
-    enabled:Boolean(id),
+    enabled:!!id
   })
   return{
-    useJobItem:data?.jobItem,
+    jobItem:data?.jobItem,
     isLoading
   } as const 
   
@@ -119,13 +121,13 @@ export function useJobItem(id: number | null) {
 
 
 export function useDebounce<T>(value:T,delay =500):T{
-  const [debounceValue,setDebounceValue]=useState(value);
+  const [debouncedValue,setDebouncedValue]=useState(value);
   
   useEffect(()=>{
-    const timerId = setTimeout(()=>setDebounceValue(value)) 
+    const timerId = setTimeout(()=>setDebouncedValue(value)) 
      return ()=>clearTimeout(timerId);
   },[value,delay])
-  return debounceValue;
+  return debouncedValue;
 }
 
 export function useActivejobItem(){
