@@ -96,7 +96,7 @@ const fetchJobItem=async(id:number):Promise<JobItemsApiResponse> =>{
 
   if (!response.ok) {
     const errorData = await response.json();
-    throw new Error(errorData.description);
+   throw new Error(errorData.description)
   }
   const data = await response.json();
   return data;
@@ -112,6 +112,8 @@ export function useJobItem(id: number | null) {
     retry:false,
     enabled:!!id
   })
+
+
   return{
     jobItem:data?.jobItem,
     isLoading
