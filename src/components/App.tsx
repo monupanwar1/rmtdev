@@ -23,6 +23,7 @@ function App() {
   const { jobItems, isLoading } = useJobItems(debouncedSearchText);
   const[currentPage,setCurrentPage]=useState(1);
   const [sortBy,setSortBy]=useState<SortBy>("relevant")
+  
 
 
   // slicing and returning only 7;
@@ -60,6 +61,8 @@ const jobItemsSorted=[...jobItems ||[]]?.sort((a,b)=>{
 
   }
 
+
+ 
   return (
     <>
       <Background />
